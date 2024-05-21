@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { database, ref, set, increment, onValue } from './firebaseConfig';
-import './Counter.css'; // Import the CSS file
+import './Counter.css'; 
 
 const Counter = () => {
   const [trumpCount, setTrumpCount] = useState(0);
   const [bidenCount, setBidenCount] = useState(0);
+  const [backgroundColor, setBackgroundColor] = useState('#f0f0f0'); 
 
   useEffect(() => {
     const trumpCountRef = ref(database, 'counts/trump');
@@ -21,6 +22,16 @@ const Counter = () => {
     });
   }, []);
 
+  useEffect(() => {
+    if (trumpCount > bidenCount) {
+      setBackgroundColor('red');
+    } else if (bidenCount > trumpCount) {
+      setBackgroundColor('blue');
+    } else {
+      setBackgroundColor('#f0f0f0'); 
+    }
+  }, [trumpCount, bidenCount]);
+
   const handleTrumpClick = () => {
     const trumpCountRef = ref(database, 'counts/trump');
     set(trumpCountRef, increment(1));
@@ -32,7 +43,7 @@ const Counter = () => {
   };
 
   return (
-    <div className="container">
+    <div className="container" style={{ backgroundColor: backgroundColor }}>
       <div className="buttonsRow">
         <div className="buttonContainer">
           <img src="/Public Poll Trump.jpg" alt="Trump" className="image" />
