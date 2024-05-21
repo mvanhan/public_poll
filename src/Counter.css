@@ -1,4 +1,5 @@
 
+
 .container {
     display: flex;
     flex-direction: column;
@@ -33,6 +34,8 @@
     margin: 10px;
     cursor: pointer;
     font-weight: bolder;
+    box-sizing: border-box;
+    max-width: 100%;
   }
   
   .count {
@@ -47,34 +50,44 @@
     margin-bottom: 10px;
   }
   
-    .message {
-        font-size: 400%;
-        font-weight: bold;
-        color: black;
-        animation: flash 2s infinite;
+  .message {
+    font-size: 400%;
+    font-weight: bold;
+    color: black;
+    animation: flash 2s infinite;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  @keyframes flash {
+    0%, 50% {
+      opacity: 1;
     }
-    
-    @keyframes flash {
-        0%, 50% {
-        opacity: 1;
-        }
-        25%, 75% {
-        opacity: 0;
-        }
+    25%, 75% {
+      opacity: 0;
     }
-    
-    
-    @media (max-width: 768px) {
-        .buttonsRow {
-        flex-direction: column;
-        }
-    
-        .buttonContainer {
-        margin: 20px 0;
-        }
-    
-        .button {
-        width: 100%;
-        max-width: 300px; 
-        }
-}
+  }
+  
+  
+  @media (max-width: 768px) {
+    .buttonsRow {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .buttonContainer {
+      margin: 20px 0;
+      max-width: 100%;
+    }
+  
+    .button {
+      width: auto; 
+      max-width: 300px; 
+    }
+  
+    .image {
+      width: 90%; 
+      max-width: 300px; 
+    }
+  }
+  
