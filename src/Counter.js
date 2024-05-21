@@ -6,7 +6,6 @@ const Counter = () => {
   const [trumpCount, setTrumpCount] = useState(0);
   const [bidenCount, setBidenCount] = useState(0);
   const [backgroundColor, setBackgroundColor] = useState('#f0f0f0'); 
-
   useEffect(() => {
     const trumpCountRef = ref(database, 'counts/trump');
     const bidenCountRef = ref(database, 'counts/biden');
@@ -44,15 +43,18 @@ const Counter = () => {
 
   return (
     <div className="container" style={{ backgroundColor: backgroundColor }}>
+      <div className="message">VOTE NOW!!</div>
+      <br/>
+      <br/>
       <div className="buttonsRow">
         <div className="buttonContainer">
           <img src="/Public Poll Trump.jpg" alt="Trump" className="image" />
-          <button className="button" onClick={handleTrumpClick}>Trump Button</button>
+          <button className="button" onClick={handleTrumpClick}>Trump</button>
           <div className="count">{trumpCount}</div>
         </div>
         <div className="buttonContainer">
           <img src="/Public Poll Biden.webp" alt="Biden" className="image" />
-          <button className="button" onClick={handleBidenClick}>Biden Button</button>
+          <button className="button" onClick={handleBidenClick}>Biden</button>
           <div className="count">{bidenCount}</div>
         </div>
       </div>
