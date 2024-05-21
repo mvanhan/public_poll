@@ -47,12 +47,12 @@ const Counter = () => {
       <div className="buttonsRow">
         <div className="buttonContainer">
           <img src="/Public Poll Trump.jpg" alt="Trump" className="image" />
-          <button className="button" onClick={handleTrumpClick}>Trump</button>
+          <button className="button" onClick={handleTrumpClick}>Trump Button</button>
           <div className="count">{trumpCount}</div>
         </div>
         <div className="buttonContainer">
           <img src="/Public Poll Biden.webp" alt="Biden" className="image" />
-          <button className="button" onClick={handleBidenClick}>Biden</button>
+          <button className="button" onClick={handleBidenClick}>Biden Button</button>
           <div className="count">{bidenCount}</div>
         </div>
       </div>
